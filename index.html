@@ -1,11 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-</head>
-<body>
-    <h1>hello world</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+      }
+      .header {
+        background-color: orange;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .header a {
+        text-decoration: none;
+      }
+      .header li {
+        display: inline-block;
+        padding: 10px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+        padding :100px;
+        height:600px;
+        align-items: center;
+      }
+      .row .box {
+        border: solid 5px silver;
+        padding: 10px;
+        margin: 10px;
+        width: 500px;
+        border-radius: 20px;
+       
+
+      }
+      .row2 {
+        display: flex;
+        justify-content: center;
+        background-color: aqua;
+        height:600px;
+        padding:100px;
+        align-items: center;
+      }
+      .row2 .box {
+        
+        width: 500px;
+        padding: 30px;
+        margin: 10px;
+        background: white;
+        height: 300px;
+        
+        
+      }
+      .footer{
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      .row2 img {
+        padding:30px;
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="header">
+        <div>
+          <h1>My Store</h1>
+        </div>
+        <div>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About </a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="box">
+          <img src="/assets/images/1.png" />
+          <h3>Product 1</h3>
+          <h4>This is the description of the product</h4>
+          Price:$25<button>Add to Cart</button>
+        </div>
+        <div class="box">
+          <img src="/assets/images/2.png" />
+          <h3>Product 2</h3>
+          <h4>This is the description of the product</h4>
+          Price:$25<button>Add to Cart</button>
+        </div>
+        <div class="box">
+          <img src="/assets/images/3.png" />
+          <h3>Product 3</h3>
+          <h4>This is the description of the product</h4>
+          Price:$25<button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="row2">
+        <img src="/assets/images/4.png" />
+        <div class="box" >
+          <h3>heading</h3>
+          <h4>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+            molestiae aut doloremque iure quam amet voluptas! Nam, rerum aliquam
+            inventore enim ad eveniet voluptatibus id minus, quasi nobis omnis
+            et?
+          </h4>
+        </div>
+      </div>
+
+      <div class="row2" style="background-color: aliceblue;">
+        <div class="box" >
+            <h3>heading</h3>
+            <h4>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+              molestiae aut doloremque iure quam amet voluptas! Nam, rerum aliquam
+              inventore enim ad eveniet voluptatibus id minus, quasi nobis omnis
+              et?
+            </h4>
+          </div>
+        
+          <img src="/assets/images/5.png"/>
+       
+        
+      </div>
+
+      <div class="footer">
+        <footer>@Copyright 2024. All rights reserved.</footer>
+      </div>
+
+    </div>
+  </body>
 </html>
