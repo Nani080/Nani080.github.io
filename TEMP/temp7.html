@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            margin: 10px;
+            padding: 40px;
+            /*background-color: rgba(192, 192, 192, 0.571);*/
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+        }
+        .row h2{
+            color: blue;
+            font-size: 80px;
+            font-family: sans-serif;
+        }
+        .row p {
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+        .box{
+            margin: 30px;
+            padding: 60px;
+            height: 250px;
+            background-color:aliceblue ;
+            display: flex;
+            border-radius: 15px;
+            box-shadow: 5px 5px 5px 5px grey;
+            text-align: center;
+        }
+        #username{
+            margin: 10px;
+            height: 30px;
+            width: 400px;
+        }
+        #password {
+            margin: 10px;
+            height: 30px;
+            width: 400px;
+        }
+        #log {
+            margin: 10px;
+            height: 40px;
+            width: 400px;
+            background-color:blue;
+            font-size: large;
+            color: white;
+            border-radius: 5px;
+        }
+        #forgpas {
+            margin: 10px;
+            text-decoration: none;
+        }
+        #crnew {
+            margin: 40px;
+            width: 200px;
+            background-color: lawngreen;
+            font-size: large;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temp7</h1>
+    <div class="row">
+        <div>
+            <h2>facebook</h2>
+            <pre><p>Facebook helps you connect</p>
+            </pre>
+        </div>
+        <div class="box">
+            <form>
+                <input type="text" id="username" placeholder="username">
+                <br>
+                <input type="password" id="password" placeholder="password">
+                <br>
+                <input type="button" id="log" value="Login">
+                <br>
+                <a href="#" id="forgpas">Forgetten password?</a>
+                <br>
+                <input type="button" id="crnew" value="Create New Account">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
