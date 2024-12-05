@@ -52,6 +52,9 @@
             height: 200px;
             border: 5px solid red;
             background: linear-gradient(teal,green);
+            box-shadow: 5px 5px 5px 5px grey;
+            transition-property: transform,height;
+            transition-duration: 0.8s;
         }
         .container {
             position: absolute;
@@ -71,6 +74,10 @@
             font-size: 30px;
             font-family: 'Times New Roman', Times, serif;
         }
+        .box:hover {
+            transform: scale(1.5,1.5);
+            height: 350px;
+        }
         p {
             font-size: 20px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -89,6 +96,36 @@
             padding: 10px;
 
         }
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        li {
+            display: inline-block;
+            padding: 5px;
+            font-size: large;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            background-color: aliceblue;
+        }
+        .menu:hover .submenu {
+            display: block;
+        }
+        .sersubmenu {
+            display: none;
+            position: absolute;
+            background-color: green;
+            margin: 10px;
+            height: 1000px;
+            transition-property: transform;
+            transition-duration: 0.8s;
+        }
+        .sermenu:hover .sersubmenu{
+            display: block;
+            width: 500px;
+        }
     </style>
 </head>
 <body>
@@ -100,11 +137,26 @@
         <h3>My App</h3> -->
         <h2>My App</h2>
         <div id="anc">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li class="menu">
+                    <a href="#projects">Projects</a>
+                    <div class="submenu">
+                        <a href="#">Project 1</a>
+                        <a href="#">Project 2</a>
+                    </div>
+                </li>
+                <li class="sermenu">
+                    <a href="#services">Services</a>
+                    <div class="sersubmenu">
+                        <h4>1. Wed Dev</h4>
+                        <h4>2. Mobile App Dev</h4>
+                        <h4>3. Backend Dev</h4>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </div>
     <div class="row head" id="home">
@@ -147,10 +199,10 @@
 
     </div>
     <div class="row" id="about">
-        <p><h2>About Me</h2></p>
-        <br>
+        <h2>About Me</h2>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, iusto. Exercitationem magni minima deleniti dolores debitis voluptates consequatur rerum maiores. Illo, dignissimos nulla blanditiis animi soluta consequuntur qui doloribus tempore.</p>
     </div>
+    
     <div class="row" id="services">
         <h2>Services</h2>
     </div>
