@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp8</title>
+    <script>
+        let users=[]
+        function showData(){
+            //alert("hello world")
+            let name = document.getElementById("name").value
+            let dob = document.getElementById("dob").value
+            let email = document.getElementById("email").value
+            let pass = document.getElementById("pass").value
+            //data.innerHTML=name + ", "+ email +", "+pass +", "+ dob
+            let user={
+                name:name,
+                email:email,
+                password:pass,
+                dob:dob,
+            };
+            users.push(user);
+            console.log(users);
+            let str="";
+            let len = users.length;
+            for(let i=0;i<len;i++){
+                str=str+`<li>${users[i].name}-${users[i].email}-${users[i].password}-${users[i].dob}</li>`
+            }
+            data.innerHTML=str
+            //let str=""
+            //users.map(value=>{
+            //    
+            //})
+            //data.innerHTML = `${name},${email},${pass},${dob}`
+        }
+    </script>
+</head>
+<body>
+    <h1><center>Registration Form</center></h1>
+    <label for="name">Name:</label>
+    <input type="text" placeholder="Name" id="name"><br>
+    <label for="email">Email:</label>
+    <input type="email" placeholder="email" id="email"><br>
+    <label for="pass">Password:</label>
+    <input type="password" placeholder="password" id="pass"><br>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" placeholder="DOB" id="dob"><br>
+    <button onclick="showData()">Register</button>
+    <hr>
+    <div id="data"></div>
+</body>
+</html>

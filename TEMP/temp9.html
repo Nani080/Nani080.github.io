@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temp9</title>
+    <script>
+        function showData(){
+            const email= document.getElementById("email").value
+            const pass=document.getElementById("pass").value
+            //data.innerHTML=`Welcome! ${email}`
+            if(email=="mokshithmreddy02@gmail.com" && pass=="1234"){
+                data.innerHTML="Welcome Mokshith"
+            }
+            else{
+                data.innerHTML="Invalid email or password"
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1><center>Login</center></h1>
+    <label for="email">Email:</label>
+    <p><input type="text" placeholder="Email" id="email"></p>
+    <label for="pass">Password:</label>
+    <p><input type="password" placeholder="Password" id="pass"></p>
+    <button onclick="showData()">Login</button>
+    <p><button>Register</button></p>
+    <hr>
+    <div id="data"></div>
+</body>
+</html>
