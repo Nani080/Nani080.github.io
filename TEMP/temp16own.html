@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temp16</title>
+    <script>
+        //alert("Hello World")
+        let users=[];
+        function showLogin(){
+            let str=`
+            <div>
+                <h2>Login Form</h2>
+                <form id="loginForm">
+                    <p><input type="text" placeholder="Username" id="username" name="username"></p>
+                    <p><input type="email" placeholder="Email" id="email" name="email"></p>
+                    <p><input type="password" placeholder="Password" id="password" name="password"></p>
+                    <button onclick="showHome()">Login</button>
+                    <button type="reset">Reset</button>
+                    <p><a href="#"><button>Forgot Password?</button></a></p>
+                    <!-- <p><a href="temp8.html"><button>Create an Account</button></a></p> -->
+                    <button onclick="showForm()">Create an Account</button>
+                </form>
+            </div>
+            `
+            root.innerHTML = str
+        }
+        function showForm(){
+            let str=`
+            <div>
+                <h2>Registration Form</h2>
+                <div id="regForm">
+                    <p><input type="text" placeholder="First Name" id="fName"></p>
+                    <p><input type="text" placeholder="Last Name" id="lName"></p>
+                    <p><input type="date" placeholder="DOB" id="dob"></p>
+                    <p><input type="text" placeholder="Username" id="username"></p>
+                    <p><input type="email" placeholder="Email" id="email"></p>
+                    <p><input type="password" placeholder="Password" id="password"></p>
+                    <!-- <p><input type="password" placeholder="Confirm Password" id="cpassword"></p> -->
+                    <button onclick="addUser()">Register</button>
+                    <button type="reset">Reset</button>
+                    <p><button onclick=showLogin()>Already have an account?</button></p>
+                </div>
+            </div>
+            `
+            root.innerHTML = str
+        }
+        function chkUser(){
+            let email = document.getElementById("email").value
+            let password = document.getElementById("password").value
+            for(let i=0;i<users.length;i++){
+                if(users[i].email==email && users[i].password==password){
+                    showHome()
+                }
+                    else{
+                        regForm.innerHTML="Invalid email or password. Please try again"
+                        alert("Invalid email or password")
+                    }
+                }
+            }
+        function addUser(){
+            let fName = document.getElementById("fName").value
+            let lName = document.getElementById("lName").value
+            let dob = document.getElementById("dob").value
+            let username = document.getElementById("username").value
+            let email = document.getElementById("email").value
+            let password = document.getElementById("password").value
+            let user={
+                fName:fName,
+                lName:lName,
+                dob:dob,
+                username:username,
+                email:email,
+                password:password
+            }
+            //let cpassword = document.getElementById("cpassword").value
+            //if(password==cpassword){
+            //    let user={
+            //        fName:fName,
+            //        lName:lName,
+            //        dob:dob,
+            //        username:username,
+            //        email:email,
+            //        password:password
+            //    }
+            //else{
+            //    alert("Password and Confirm Password should be same")
+            //}
+            users.push(user)
+            console.log(user)
+            showLogin();
+        }
+        function showHome(){
+            let str=`
+                    <div>
+                        <h2>Welcome User</h2>
+                        <p><button onclick=showLogin()>Logout</button></p>
+                    </div>
+                    `
+                    root.innerHTML = str
+        }
+    </script>
+</head>
+<body onload="showLogin()">
+    <div id="root">
+
+    </div>
+</body>
+</html>
