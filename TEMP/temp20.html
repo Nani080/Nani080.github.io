@@ -14,9 +14,25 @@
             let divProducts = document.getElementById('divProducts');
             let str=""
             products.forEach((product) => {
-                str += `<div>Product ID: ${product.id}, Product Name: ${product.name}, Product Price: ${product.price}</div>`;
+                str += `
+                <div>
+                    Product ID: ${product.id},
+                    Product Name: ${product.name},
+                    Product Price: ${product.price}
+                    <button onclick='addCart(${product.id})'>Add to Cart</button>
+                </div>
+                `
                 divProducts.innerHTML = str;
             });
+        };
+        const cart = {}
+        const addCart = (id) => {
+            if(cart[id]){
+                cart[id] += 1;
+            }else{
+                cart[id] = 1;
+            }
+            console.log(cart);
         };
     </script>
 </head>
@@ -24,8 +40,7 @@
     <h1>My Store</h1>
     <hr>
     <h3>Products</h3>
-    <div id="divProducts">
-
-    </div>
+    <div id="divProducts"></div>
+    <h3>My Cart</h3>
 </body>
 </html>
