@@ -41,7 +41,8 @@
                 str += `
                 <div>
                     Product ID: ${key},
-                    Quantity: ${cart[key]}
+                    Quantity:${cart[key]}
+                    Price: ${cart[key] * products.find(product => product.id == key).price}
                 </div>
                 `
             }
