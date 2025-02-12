@@ -32,7 +32,20 @@
             }else{
                 cart[id] = 1;
             }
-            console.log(cart);
+            showCart();
+        };
+        const showCart = () => {
+            let divCart = document.getElementById('divCart');
+            let str = "";
+            for (const key in cart) {
+                str += `
+                <div>
+                    Product ID: ${key},
+                    Quantity: ${cart[key]}
+                </div>
+                `
+            }
+            divCart.innerHTML = str;
         };
     </script>
 </head>
@@ -41,6 +54,8 @@
     <hr>
     <h3>Products</h3>
     <div id="divProducts"></div>
+    <hr>
     <h3>My Cart</h3>
+    <div id="divCart"></div>
 </body>
 </html>
