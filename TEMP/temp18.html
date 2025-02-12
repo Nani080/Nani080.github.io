@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temp18</title>
+    <script>
+        const products = [
+            { name: 'apple', type: 'fruit', price: '60/-' },
+            { name: 'carrot', type: 'vegetable', price: '8/-' },
+            { name: 'banana', type: 'fruit', price: '12/-' },
+            { name: 'potato', type: 'vegetable', price: '12/-' },
+            { name: 'orange', type: 'fruit', price: '12/-' },
+            { name: 'onion', type: 'vegetable', price: '12/-' },
+            { name: 'grape', type: 'fruit', price: '12/-' },
+            { name: 'cabbage', type: 'vegetable', price: '12/-' },
+            { name: 'mango', type: 'fruit', price: '12/-' },
+            { name: 'spinach', type: 'vegetable', price: '12/-' }
+        ];
+        products.forEach((product) => {
+            /*if (product.type === 'fruit')*/ {
+                console.log(product.name);
+            }
+        });
+        //for (let i = 0; i < products.length; i++) {
+        //    if (products[i].type === 'fruit') {
+        //        console.log(products[i].name);
+        //    }
+        //}
+        //function greet(){
+        //    console.log("Hello World")
+        //}
+        const greet=()=>{                           //arrow function
+            console.log("Hello World");
+        };
+        greet();
+        const f1 = () => {
+            console.log("GRIET")
+        }
+        f1()
+        const f2=f1
+        f2()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

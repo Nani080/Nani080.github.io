@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temp20</title>
+    <script>
+        const products =[
+            {id:1,name:"P1",price:34},
+            {id:2,name:"P2",price:45},
+            {id:3,name:"P3",price:56},
+        ]
+        const showProducts = () => {
+            let divProducts = document.getElementById('divProducts');
+            let str=""
+            products.forEach((product) => {
+                str += `<div>Product ID: ${product.id}, Product Name: ${product.name}, Product Price: ${product.price}</div>`;
+                divProducts.innerHTML = str;
+            });
+        };
+    </script>
+</head>
+<body onload="showProducts()">
+    <h1>My Store</h1>
+    <hr>
+    <h3>Products</h3>
+    <div id="divProducts">
+
+    </div>
+</body>
+</html>
