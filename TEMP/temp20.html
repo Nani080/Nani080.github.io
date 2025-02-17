@@ -34,6 +34,18 @@
             }
             showCart();
         };
+        const increaseQuantity = (id) => {
+            cart[id] += 1;
+            showCart();
+        };
+        const decreaseQuantity = (id) => {
+            if(cart[id] > 1) {
+                cart[id] -= 1;
+            } else {
+                delete cart[id];
+            }
+            showCart();
+        };
         const showCart = () => {
             let divCart = document.getElementById('divCart');
             let str = "";
@@ -43,6 +55,8 @@
                     Product ID: ${key},
                     Quantity:${cart[key]}
                     Price: ${cart[key] * products.find(product => product.id == key).price}
+                    <button onclick='increaseQuantity(${key})'>+</button>
+                    <button onclick='decreaseQuantity(${key})'>-</button>
                 </div>
                 `
             }
