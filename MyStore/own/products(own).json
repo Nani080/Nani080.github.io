@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop",
+        "desc": "High-performance laptop",
+        "price": 800,
+        "url": "https://picsum.photos/id/1/300/300",
+        "category": "Electronics"
+    },
+    {
+        "id": 2,
+        "name": "Headphones",
+        "desc": "Noise-cancelling headphones",
+        "price": 120,
+        "url": "https://picsum.photos/id/2/300/300",
+        "category": "Electronics"
+    },
+    {
+        "id": 3,
+        "name": "T-Shirt",
+        "desc": "Comfortable cotton t-shirt",
+        "price": 20,
+        "url": "https://picsum.photos/id/3/300/300",
+        "category": "Clothing"
+    },
+    {
+        "id": 4,
+        "name": "Shoes",
+        "desc": "Running shoes with great grip",
+        "price": 60,
+        "url": "https://picsum.photos/id/4/300/300",
+        "category": "Clothing"
+    },
+    {
+        "id": 5,
+        "name": "Refrigerator",
+        "desc": "Energy-efficient refrigerator",
+        "price": 500,
+        "url": "https://picsum.photos/id/5/300/300",
+        "category": "Home Appliances"
+    },
+    {
+        "id": 6,
+        "name": "Microwave Oven",
+        "desc": "Compact microwave for quick heating",
+        "price": 200,
+        "url": "https://picsum.photos/id/6/300/300",
+        "category": "Home Appliances"
+    },
+    {
+        "id": 7,
+        "name": "Harry Potter Book Set",
+        "desc": "Complete Harry Potter book collection",
+        "price": 100,
+        "url": "https://picsum.photos/id/7/300/300",
+        "category": "Books"
+    },
+    {
+        "id": 8,
+        "name": "The Great Gatsby",
+        "desc": "Classic novel by F. Scott Fitzgerald",
+        "price": 15,
+        "url": "https://picsum.photos/id/8/300/300",
+        "category": "Books"
+    },
+    {
+        "id": 9,
+        "name": "Lego Building Set",
+        "desc": "Creative Lego set for kids",
+        "price": 50,
+        "url": "https://picsum.photos/id/9/300/300",
+        "category": "Toys"
+    },
+    {
+        "id": 10,
+        "name": "Remote Control Car",
+        "desc": "Fast and durable remote control car",
+        "price": 80,
+        "url": "https://picsum.photos/id/10/300/300",
+        "category": "Toys"
+    }
+]

@@ -1,0 +1,298 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* 🔹 Authentication UI (Login & Signup) */
+#authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+#loginBox, #signupBox {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+#authContainer h1 {
+    margin-bottom: 10px;
+}
+
+#authContainer input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#authContainer button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0044cc;
+    color: white;
+    font-size: 16px;
+}
+
+#authContainer button:hover {
+    background-color: #003399;
+}
+
+/* Hide store until login */
+#storeContainer {
+    display: none;
+}
+
+/* 🔹 Store Layout */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #0044cc;
+    color: white;
+}
+
+.header h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+#cartButton {
+    background-color: #ff5733;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+#cartButton:hover {
+    background-color: #e63e1d;
+}
+
+/* 🔹 Search & Filter */
+.search-container, .filter-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#searchInput, #categoryFilter {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #0044cc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+/* 🔹 Product Section */
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Product Box */
+.box {
+    width: 280px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box img {
+    max-width: 100%;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.box h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+}
+
+.box p {
+    font-size: 14px;
+    color: #777;
+}
+
+.box h4 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #0044cc;
+}
+
+/* 🔹 Add to Cart Button */
+.box button {
+    background-color: #28a745;
+    font-size: 16px;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.box button:hover {
+    background-color: #218838;
+}
+
+/* 🔹 Cart Section */
+#cartBox {
+    display: none;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    margin: auto;
+}
+
+#divCart div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#divCart button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#divCart button:hover {
+    background-color: #c82333;
+}
+
+/* 🔹 Checkout & Order Summary */
+#checkoutBox, #confirmationBox {
+    display: none;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#checkoutBox button, #confirmationBox button {
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkoutButton {
+    background-color: #28a745;
+    color: white;
+}
+
+#checkoutButton:hover {
+    background-color: #218838;
+}
+
+#confirmationBox button {
+    background-color: #0044cc;
+    color: white;
+}
+
+#confirmationBox button:hover {
+    background-color: #003399;
+}
+
+/* 🔹 Dark Mode Styling */
+.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode .header {
+    background-color: #1f1f1f;
+}
+
+.dark-mode #cartButton, .dark-mode #checkoutButton, .dark-mode #confirmationBox button {
+    background-color: #4caf50;
+}
+
+.dark-mode .box {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #444;
+}
+
+.dark-mode #categoryFilter, .dark-mode #searchInput {
+    background-color: #222;
+    color: white;
+    border-color: #444;
+}
+
+.dark-mode #checkoutBox, .dark-mode #confirmationBox {
+    background-color: #1f1f1f;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 90%;
+    }
+
+    #cartBox {
+        width: 90%;
+    }
+}

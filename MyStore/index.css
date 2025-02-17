@@ -1,0 +1,55 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+.row{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box{
+    width: 300px;
+    border: 1px solid #f70505;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.row button{
+    background-color: rgb(99, 6, 125);
+    font-size: 20px;
+    color: rgba(248, 8, 176, 0.991);
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+}
+h1 {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #091cf1;
+    color: #68f5ff;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    line-height: 1.5;
+}
+
+#cartButton{
+    background-color: #f70505;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}

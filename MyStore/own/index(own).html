@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Store</title>
+    <link rel="stylesheet" href="index(own).css" />
+    <script src="index(own).js" defer></script>
+</head>
+<body>
+
+    <!-- Authentication Section -->
+    <div id="authContainer">
+        <div id="loginBox">
+            <h1>My Store</h1>
+            <h3>Login</h3>
+            <input type="text" id="loginEmail" placeholder="Email" />
+            <input type="password" id="loginPassword" placeholder="Password" />
+            <button onclick="login()">Login</button>
+            >Don't have an account? <a href="javascript:void(0);" onclick="showSignup()">Register</a></p>
+        </div>
+
+        <div id="signupBox" style="display: none;">
+            <h1>My Store</h1>
+            <h3>Create Account</h3>
+            <input type="text" id="signupName" placeholder="Full Name" />
+            <input type="text" id="signupEmail" placeholder="Email" />
+            <input type="password" id="signupPassword" placeholder="Password" />
+            <input type="date" id="signupDOB" />
+            <button onclick="signup()">Register</button>
+            <p>Already have an account? <a href="javascript:void(0);" onclick="showLogin()">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Store Section (Hidden Until Login) -->
+    <div id="storeContainer" style="display: none;">
+        <div class="header">
+            <h1>My Store</h1>
+            <h4 id="home" onclick="hideCart()">HOME</h4>
+            <button id="cartButton" onclick="displayCart()">Cart:<span id="items"></span></button>
+            <button onclick="logout()">Logout</button>
+            <button id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        </div>
+
+        <hr />
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" />
+        </div>
+        <div class="filter-container">
+            <select id="categoryFilter" onchange="filterByCategory()">
+                <option value="all">All Categories</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Home Appliances">Home Appliances</option>
+                <option value="Books">Books</option>
+                <option value="Toys">Toys</option>
+            </select>            
+        </div>
+
+        <div id="productBox">
+            <h3>Products</h3>
+            <div id="divProducts"></div>
+        </div>
+
+        <div id="cartBox" style="display: none">
+            <h3>My Cart</h3>
+            <div id="divCart"></div>
+            <h4>Order Value: <span id="order"></span></h4>
+            <button onclick="hideCart()">Close</button>
+            <button id="checkoutButton" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+
+        <div id="checkoutBox" style="display: none">
+            <h3>Order Summary</h3>
+            <div id="orderSummary"></div>
+            <h4>Total: <span id="totalOrder"></span></h4>
+            <button onclick="confirmOrder()">Confirm Order</button>
+            <button onclick="cancelCheckout()">Cancel</button>
+        </div>
+
+        <div id="confirmationBox" style="display: none">
+            <h2>✅ Order Placed Successfully!</h2>
+            <p>Thank you for shopping with us.</p>
+            <button onclick="resetCart()">Return to Home</button>
+        </div>
+    </div>
+
+</body>
+</html>
