@@ -11,14 +11,17 @@
     <div class="container">
         <header>
             <h1>MyBank</h1>
-            <nav>
-                <button onclick="showLogin()">Login</button>
-                <button onclick="showForm()">Register</button>
-                <button onclick="toggleTheme()"><i class="fa fa-adjust"></i></button>
-                <button onclick="clearLocalStorage()">Clear Data</button>
-
-            </nav>
+            <button class="hamburger" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </button>
         </header>
+
+        <nav class="sidebar" id="sidebar">
+            <button onclick="showLogin()"><i class="fa fa-sign-in-alt"></i> Login</button>
+            <button onclick="showForm()"><i class="fa fa-user-plus"></i> Register</button>
+            <button onclick="toggleTheme()"><i class="fa fa-adjust"></i> Toggle Theme</button>
+            <button onclick="clearLocalStorage()"><i class="fa fa-trash"></i> Clear Data</button>
+        </nav>
 
         <main id="root"></main>
 
