@@ -43,19 +43,21 @@
         </div>
 
         <hr />
-
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" />
-        </div>
-        <div class="filter-container">
-            <select id="categoryFilter" onchange="filterByCategory()">
-                <option value="all">All Categories</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Home Appliances">Home Appliances</option>
-                <option value="Books">Books</option>
-                <option value="Toys">Toys</option>
-            </select>            
+        <div class="search-filter-container">
+            <h3>Search & Filter</h3>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" />
+            </div>
+            <div class="filter-container">
+                <select id="categoryFilter" onchange="filterByCategory()">
+                    <option value="all">All Categories</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Home Appliances">Home Appliances</option>
+                    <option value="Books">Books</option>
+                    <option value="Toys">Toys</option>
+                </select>            
+            </div>
         </div>
 
         <div id="productBox">
