@@ -105,21 +105,9 @@
         </div>
         <div>
             <h6>Date of birth</h6>
-            <select name="date" id="date">
-                <option>
-                    
-                </option>
-            </select>
-            <select name="month" id="month">
-                <option>
-                    
-                </option>
-            </select>
-            <select name="year" id="year">
-                <option>
-                    
-                </option>
-            </select>
+            <select name="date" id="date"></select>
+            <select name="month" id="month"></select>
+            <select name="year" id="year"></select>
         </div>
         <div>
             <h6>Gender</h6>
@@ -146,5 +134,22 @@
             <p><a href="javascript:void(0);" onclick="showLogin()">Already have an account?</a></p>
         </div>
     </div>
+    <script>
+        let str="";
+        for (let i = 1; i <= 31; i++) {
+            str += `<option>${i}</option>`;
+        }
+        document.getElementById("date").innerHTML = str;
+        str="";
+        for (let i = 1; i <= 12; i++) {
+            str += `<option>${i}</option>`;
+        }
+        document.getElementById("month").innerHTML = str;
+        str="";
+        for (let i = 2025; i >= 1905; i--) {
+            str += `<option>${i}</option>`;
+        }
+        document.getElementById("year").innerHTML = str;
+    </script>
 </body>
 </html>
