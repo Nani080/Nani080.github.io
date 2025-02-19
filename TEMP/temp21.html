@@ -159,214 +159,200 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Facebook Sign Up</title>
     <style>
       body {
-        background-color: #eeeeee;
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+        text-align: center;
       }
       .container {
         background-color: white;
-        border-radius: 20px;
+        border-radius: 10px;
+        padding: 20px;
+        width: 430px;
+        margin: 50px auto;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        font-size: 48px;
+        color: #1877f2;
+        font-weight: bold;
+        font-family: "Helvetica", sans-serif;
+      }
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+      .caption {
+        font-size: 16px;
+        color: #606770;
+        margin-bottom: 15px;
+      }
+      input, select {
+        width: 95%;
+        margin: 5px 0;
+        border-radius: 5px;
         padding: 10px;
-        width: 400px;
-        margin: auto;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+      .radio-group {
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        margin: 5px auto;
+      }
+      .radioClass {
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        width: 32%;
+        padding: 8px;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      button {
+        color: white;
+        background-color: #42b72a;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 5px;
+        width: 95%;
+        border: none;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+      button:hover { background-color: #36a420; }
+      .confirm-btn { width: 47%; background-color: #1877f2; }
+      .confirm-btn:hover { background-color: #165ec9; }
+      .edit-btn { width: 47%; background-color: #e4e6eb; color: black; }
+      .edit-btn:hover { background-color: #d8dadf; }
+      .leftCaption {
+        text-align: left;
+        width: 95%;
+        font-size: 12px;
+        color: #606770;
+        margin: 10px auto 5px;
       }
       .row {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
       }
-      .title {
-        font-size: 30px;
-        margin-top: 30px;
-      }
-      .header {
-        font-size: 50px;
-        color: blue;
-        font-weight: bold;
-        font-family: verdana;
-      }
-      .caption {
-        font-size: 20px;
-        color: gray;
-        text-align: center;
-        margin-bottom: 5px;
-      }
-      input,
-      select {
-        width: 100%;
-        margin: 5px;
-        border-radius: 5px;
-        padding: 5px;
-        border: 1px solid gray;
-      }
-      button {
-        color: white;
-        background-color: green;
-        font-size: 20px;
-        padding: 5px;
-        border-radius: 2px;
-        width: 200px;
+      hr {
         border: none;
-        margin: 5px;
-      }
-      .leftCaption {
-        color: gray;
-        margin-left: 5px;
-        font-size: 10px;
-      }
-      .qMark {
-        background-color: green;
-        border-radius: 5px;
-        color: white;
-        padding-left: 5px;
-        padding-right: 5px;
-        margin: 2px;
-      }
-      .radioClass {
-        border: 1px solid gray;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 5px;
-        border-radius: 5px;
-        padding: 3px;
+        height: 1px;
+        background-color: #ccc;
+        width: 95%;
+        margin: 10px auto;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="header">facebook</div>
-      </div>
-      <div class="row">
-        <div>
-          <div class="title">Create a new account</div>
-          <div class="caption">It's quick and easy.</div>
-        </div>
-      </div>
-      <hr>
-    <div id="root"></div>
+      <div class="header">facebook</div>
+      <div class="title">Create a new account</div>
+      <div class="caption">It's quick and easy.</div>
+      <hr />
+      <div id="root"></div>
     </div>
+
     <script>
-        const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      let userData = {}; // Store user data
+
       const showData = () => {
-        let firstname = document.getElementById("firstname").value;
-        let surname = document.getElementById("surname").value;
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
-        let gender = document.getElementsByName("gender");
-        let pronoun = document.getElementById("prSelect").value;
-        let day = document.getElementById("day").value;
-        let month = document.getElementById("month").value;
-        let year = document.getElementById("year").value;
-        let dob = `${day}/${month}/${year}`;
-        let g = ""
-        if (gender[0].checked) g = "Female";
-        if (gender[1].checked) g = "Male";
-        if (gender[2].checked) g = pronoun;
-        let str = `
-        <div>
-          <h3>Confirm your details</h3>
-          Name:${firstname} ${surname}<br>
-          Email:${email}<br>
-          Password:${password}<br>
-          Gender:${g}<br>
-          Date of Birth:${dob}<br>
-          <button style="width:100px">Confirm</button>
-          <button style="width:100px">Edit</button>
-        </div>
+        userData = {
+          firstname: document.getElementById("firstname").value,
+          surname: document.getElementById("surname").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+          day: document.getElementById("day").value,
+          month: document.getElementById("month").value,
+          year: document.getElementById("year").value,
+          gender: [...document.getElementsByName("gender")].find(r => r.checked)?.value || "",
+          pronoun: document.getElementById("prSelect").value
+        };
+
+        let genderDisplay = userData.gender === "Custom" ? userData.pronoun : userData.gender;
+        let dob = `${userData.day} ${userData.month} ${userData.year}`;
+
+        document.getElementById("root").innerHTML = `
+          <div>
+            <h3>Confirm your details</h3>
+            <p><strong>Name:</strong> ${userData.firstname} ${userData.surname}</p>
+            <p><strong>Email:</strong> ${userData.email}</p>
+            <p><strong>Password:</strong> ${userData.password}</p>
+            <p><strong>Gender:</strong> ${genderDisplay}</p>
+            <p><strong>Date of Birth:</strong> ${dob}</p>
+            <button class="confirm-btn">Confirm</button>
+            <button class="edit-btn" onclick="showForm()">Edit</button>
+          </div>
         `;
-        root.innerHTML = str;
       };
 
       const showForm = () => {
-        let str = `
-      
-      <div class="row">
-        <input type="text" id="firstname" placeholder="Firstname" />
-        <input type="text" id="surname" placeholder="Surname" />
-      </div>
-      <div class="row" style="justify-content: start">
-        <div class="leftCaption">
-          Date of Birth<span class="qMark"
-            ><abbr title="Click for more information">?</abbr></span
-          >
-        </div>
-      </div>
-      <div class="row">
-        <select id="day"></select>
-        <select id="month"></select>
-        <select id="year"></select>
-      </div>
-      <div class="row" style="justify-content: start">
-        <div class="leftCaption">
-          Gender<span class="qMark"
-            ><abbr title="Click for more information">?</abbr></span
-          >
-        </div>
-      </div>
-      <div class="row">
-        <div class="radioClass">
-          <div><label> Female</label></div>
-          <div><input type="radio" name="gender" onclick="togglePronoun()" /></div>
-        </div>
-        <div class="radioClass">
-          <div><label> Male</label></div>
-          <div><input type="radio" name="gender" onclick="togglePronoun()" /></div>
-        </div>
-        <div class="radioClass">
-          <div><label> Custom</label></div>
-          <div><input type="radio" name="gender" onclick="togglePronoun()" /></div>
-        </div>
-      </div>
+        document.getElementById("root").innerHTML = `
+          <div class="row">
+            <input type="text" id="firstname" placeholder="First name" value="${userData.firstname || ''}" />
+            <input type="text" id="surname" placeholder="Surname" value="${userData.surname || ''}" />
+          </div>
+          <div class="leftCaption">Date of Birth:</div>
+          <div class="row">
+            <select id="day"></select>
+            <select id="month"></select>
+            <select id="year"></select>
+          </div>
+          <div class="leftCaption">Gender:</div>
+          <div class="radio-group">
+            <div class="radioClass" onclick="selectGender('Female')">
+              Female <input type="radio" name="gender" value="Female" ${userData.gender === "Female" ? "checked" : ""} />
+            </div>
+            <div class="radioClass" onclick="selectGender('Male')">
+              Male <input type="radio" name="gender" value="Male" ${userData.gender === "Male" ? "checked" : ""} />
+            </div>
+            <div class="radioClass" onclick="selectGender('Custom')">
+              Custom <input type="radio" name="gender" value="Custom" ${userData.gender === "Custom" ? "checked" : ""} />
+            </div>
+          </div>
+          <div class="row">
+            <select id="prSelect" style="display:${userData.gender === "Custom" ? "block" : "none"}">
+              <option value="NA">Select your pronoun</option>
+              <option value="She" ${userData.pronoun === "She" ? "selected" : ""}>She: "Wish her a happy birthday"</option>
+              <option value="He" ${userData.pronoun === "He" ? "selected" : ""}>He: "Wish him a happy birthday"</option>
+              <option value="They" ${userData.pronoun === "They" ? "selected" : ""}>They: "Wish them a happy birthday"</option>
+            </select>
+          </div>
+          <div class="row">
+            <input type="text" id="email" placeholder="Mobile number or email address" value="${userData.email || ''}" />
+          </div>
+          <div class="row">
+            <input type="password" id="password" placeholder="New password" value="${userData.password || ''}" />
+          </div>
+          <button onclick="showData()">Sign Up</button>
+        `;
 
-     <div class="row">
-      <select id="prSelect" style="display:none">
-        <option value = "NA">Select your pronoun</option>
-        <option value = "She">She:"Wish her a happy birthday"</option>
-        <option value = "He">He:"Wish him a happy birthday"</option>
-        <option value = "They">They:"Wish them a happy birthday"</option>
-      </select>
-     </div>
+        populateDateFields();
+        document.getElementById("day").value = userData.day || "1";
+        document.getElementById("month").value = userData.month || "Jan";
+        document.getElementById("year").value = userData.year || new Date().getFullYear();
+      };
 
-      <div class="row">
-        <input type="text" id="email" placeholder="Mobile number or email address" />
-      </div>
-      <div class="row">
-        <input type="password" id="password" placeholder="New password" />
-      </div>
-      <div class="row">
-        <button onclick='showData()'>Sign Up</button>
-      </div>
-      `;
-        root.innerHTML = str;
+      const populateDateFields = () => {
+        document.getElementById("day").innerHTML = [...Array(31).keys()].map(i => `<option>${i + 1}</option>`).join("");
+        document.getElementById("month").innerHTML = months.map(m => `<option>${m}</option>`).join("");
+        document.getElementById("year").innerHTML = [...Array(121).keys()].map(i => `<option>${2025 - i}</option>`).join("");
+      };
+
+      const selectGender = gender => {
+        document.getElementsByName("gender").forEach(r => (r.checked = r.value === gender));
+        document.getElementById("prSelect").style.display = gender === "Custom" ? "block" : "none";
       };
 
       showForm();
-      let str = "";
-      for (let i = 1; i <= 31; i++) {
-        str += `<option>${i}</option>`;
-      }
-      day.innerHTML = str;
-      str = "";
-      for (let i = 0; i <= 11; i++) {
-        str += `<option>${months[i]}</option>`;
-      }
-      month.innerHTML = str;
-      str = "";
-      for (let i = 2025; i >= 1905; i--) {
-        str += `<option>${i}</option>`;
-      }
-      year.innerHTML = str;
-
-      const togglePronoun = () => {
-        let p = document.getElementsByName("gender");
-        if (p[2].checked) {
-          prSelect.style.display = "block";
-        } else {
-          prSelect.style.display = "none";
-        }
-      };
     </script>
   </body>
 </html>
