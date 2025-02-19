@@ -5,10 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>temp21</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            padding: 10px;
+        }
         div {
             text-align: center;
         }
-        h1 {
+        .header h1 {
             font-size: 50px;
             color: #1877f2;
         }
@@ -20,10 +35,18 @@
             color: #606770;
         }
         h6 {
-            font-size: 15px;
+            font-size: 10px;
             color: #606770;
         }
-        input {
+        .form1 input {
+            width: 150px;
+            height: 30px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #606770;
+            border-radius: 5px;
+        }
+        .form2 input{
             width: 300px;
             height: 30px;
             margin: 5px;
@@ -40,81 +63,88 @@
             border-radius: 5px;
         }
         radio {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             margin: 5px;
             padding: 5px;
-            border: 1px solid #606770;
-            border-radius: 5px;
+            /*border: 1px solid #606770;*/
+            /*border-radius: 5px;*/
         }
+        
         button {
-            width: 300px;
+            width: 200px;
             height: 30px;
             margin: 5px;
             padding: 5px;
             border: 1px solid #1877f2;
             border-radius: 5px;
-            background-color: #1877f2;
+            background-color: forestgreen;
             color: white;
             font-size: 20px;
         }
         a {
+            text-decoration: none;
             color: #1877f2;
         }
     </style>
 </head>
 <body>
-    <div>
-    <h1>facebook</h1>
+    <div class="header">
+        <h1>facebook</h1>
     </div>
-    <div>
-        <h3>Create a new account</h3>
-        <h5>It's quick and easy</h5>
-    </div>
-    <div>
-        <input type="text" placeholder="First name" />
-        <input type="text" placeholder="Surname" />
-    </div>
-    <br>
-    <div>
-        <h6>Date of birth</h6>
-        <select name="date" id="date">
-            <option>
-                
-            </option>
-        </select>
-        <select name="month" id="month">
-            <option>
-                
-            </option>
-        </select>
-        <select name="year" id="year">
-            <option>
-                
-            </option>
-        </select>
-    </div>
-    <div>
-        <h6>Gender</h6>
-        <radio>
-            <label for="female">Female</label>
-            <input type="radio" name="gender" id="female">
-            <label for="male">Male</label>
-            <input type="radio" name="gender" id="male">
-            <label for="custom">Custom</label>
-            <input type="radio" name="gender" id="custom">
-        </radio>
-    </div>
-    <br>
-    <div>
-        <p><input type="text" placeholder="Mobile number or email address" /></p>
-        <p><input type="password" placeholder="New password"></p>
-    </div>
-    <div>
-        <h6>People who use our service may have uploaded your contact information to Facebook. Learn more.</h6>
-        <h6>By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS notifications from us and can opt out at any time.</h6>
-    </div>
-    <div>
-        <button>Sign Up</button>
-        <p>Already have an account? <a href="javascript:void(0);" onclick="showLogin()">Login</a></p>
+    <div class="container">
+        
+        <div>
+            <h3>Create a new account</h3>
+            <h5>It's quick and easy</h5>
+        </div>
+        <div class="form1">
+            <input type="text" placeholder="First name" />
+            <input type="text" placeholder="Surname" />
+        </div>
+        <div>
+            <h6>Date of birth</h6>
+            <select name="date" id="date">
+                <option>
+                    
+                </option>
+            </select>
+            <select name="month" id="month">
+                <option>
+                    
+                </option>
+            </select>
+            <select name="year" id="year">
+                <option>
+                    
+                </option>
+            </select>
+        </div>
+        <div>
+            <h6>Gender</h6>
+            <radio>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male">
+                <label for="custom">Custom</label>
+                <input type="radio" name="gender" id="custom">
+            </radio>
+        </div>
+        <br>
+        <div class="form2">
+            <p><input type="text" placeholder="Mobile number or email address"></p>
+            <p><input type="password" placeholder="New password"></p>
+        </div>
+        <div>
+            <h6>People who use our service may have uploaded your contact information to Facebook. Learn more.</h6>
+            <h6>By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS notifications from us and can opt out at any time.</h6>
+        </div>
+        <div>
+            <button>Sign Up</button>
+            <p><a href="javascript:void(0);" onclick="showLogin()">Already have an account?</a></p>
+        </div>
     </div>
 </body>
 </html>
