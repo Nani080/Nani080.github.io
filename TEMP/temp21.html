@@ -163,7 +163,6 @@
     <style>
       body {
         background-color: #eeeeee;
-        font-family: Arial, sans-serif;
       }
       .container {
         background-color: white;
@@ -184,7 +183,7 @@
         font-size: 50px;
         color: blue;
         font-weight: bold;
-        /*font-family: verdana;*/
+        font-family: verdana;
       }
       .caption {
         font-size: 20px;
@@ -232,9 +231,6 @@
         border-radius: 5px;
         padding: 3px;
       }
-      #pronounSelect {
-        display: none;
-      }
     </style>
   </head>
   <body>
@@ -248,13 +244,53 @@
           <div class="caption">It's quick and easy.</div>
         </div>
       </div>
+      <hr>
+    <div id="root"></div>
+    </div>
+    <script>
+        const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const showData = () => {
+        let firstname = document.getElementById("firstname").value;
+        let surname = document.getElementById("surname").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let gender = document.getElementsByName("gender");
+        let pronoun = document.getElementById("prSelect").value;
+        let day = document.getElementById("day").value;
+        let month = document.getElementById("month").value;
+        let year = document.getElementById("year").value;
+        let dob = `${day}/${month}/${year}`;
+        let g = ""
+        if (gender[0].checked) g = "Female";
+        if (gender[1].checked) g = "Male";
+        if (gender[2].checked) g = pronoun;
+        let str = `
+        <div>
+          <h3>Confirm your details</h3>
+          Name:${firstname} ${surname}<br>
+          Email:${email}<br>
+          Password:${password}<br>
+          Gender:${g}<br>
+          Date of Birth:${dob}<br>
+          <button style="width:100px">Confirm</button>
+          <button style="width:100px">Edit</button>
+        </div>
+        `;
+        root.innerHTML = str;
+      };
+
+      const showForm = () => {
+        let str = `
+      
       <div class="row">
-        <input type="text" placeholder="First Name" />
-        <input type="text" placeholder="Surname" />
+        <input type="text" id="firstname" placeholder="Firstname" />
+        <input type="text" id="surname" placeholder="Surname" />
       </div>
       <div class="row" style="justify-content: start">
         <div class="leftCaption">
-            Date of Birth<span class="qMark"><abbr title="Click for more information">?</abbr></span>
+          Date of Birth<span class="qMark"
+            ><abbr title="Click for more information">?</abbr></span
+          >
         </div>
       </div>
       <div class="row">
@@ -264,66 +300,73 @@
       </div>
       <div class="row" style="justify-content: start">
         <div class="leftCaption">
-          Gender<span class="qMark"><abbr title="Click for more information">?</abbr></span>
+          Gender<span class="qMark"
+            ><abbr title="Click for more information">?</abbr></span
+          >
         </div>
       </div>
       <div class="row">
         <div class="radioClass">
           <div><label> Female</label></div>
-          <div><input type="radio" name="gender" onclick="togglePronoun(false)" /></div>
+          <div><input type="radio" name="gender" onclick="togglePronoun()" /></div>
         </div>
         <div class="radioClass">
           <div><label> Male</label></div>
-          <div><input type="radio" name="gender" onclick="togglePronoun(false)" /></div>
+          <div><input type="radio" name="gender" onclick="togglePronoun()" /></div>
         </div>
         <div class="radioClass">
           <div><label> Custom</label></div>
-          <div><input type="radio" name="gender" onclick="togglePronoun(true)" /></div>
+          <div><input type="radio" name="gender" onclick="togglePronoun()" /></div>
         </div>
       </div>
-      <div class="row" id="pronounSelect">
-        <select name="" id="">
-            <option value="">Select your pronoun</option>
-            <option value="">She: "Wish her a happy birthday"</option>
-            <option value="">He: "Wish him a happy birthday"</option>
-            <option value="">Them: "Wish them a happy birthday"</option>
-        </select>
-      </div>
-      <div class="row">
-        <input type="text" placeholder="Mobile number or email address" />
-      </div>
-      <div class="row">
-        <input type="password" placeholder="New password" />
-      </div>
-      <div class="row">
-        <button>Sign Up</button>
-      </div>
-    </div>
-    <script>
-        let str = "";
-        for (let i = 1; i <= 31; i++) {
-          str += `<option>${i}</option>`;
-        }
-        day.innerHTML = str;
-        str=""
-        for (let i = 1; i <= 12; i++) {
-          str += `<option>${i}</option>`;
-        }
-        month.innerHTML = str;
-        str=""
-        for (let i = 1905; i <= 2025; i++) {
-          str += `<option>${i}</option>`;
-        }
-        year.innerHTML = str;
 
-        function togglePronoun(show) {
-          const pronounSelect = document.getElementById('pronounSelect');
-          if (show) {
-            pronounSelect.style.display = 'block';
-          } else {
-            pronounSelect.style.display = 'none';
-          }
+     <div class="row">
+      <select id="prSelect" style="display:none">
+        <option value = "NA">Select your pronoun</option>
+        <option value = "She">She:"Wish her a happy birthday"</option>
+        <option value = "He">He:"Wish him a happy birthday"</option>
+        <option value = "They">They:"Wish them a happy birthday"</option>
+      </select>
+     </div>
+
+      <div class="row">
+        <input type="text" id="email" placeholder="Mobile number or email address" />
+      </div>
+      <div class="row">
+        <input type="password" id="password" placeholder="New password" />
+      </div>
+      <div class="row">
+        <button onclick='showData()'>Sign Up</button>
+      </div>
+      `;
+        root.innerHTML = str;
+      };
+
+      showForm();
+      let str = "";
+      for (let i = 1; i <= 31; i++) {
+        str += `<option>${i}</option>`;
+      }
+      day.innerHTML = str;
+      str = "";
+      for (let i = 0; i <= 11; i++) {
+        str += `<option>${months[i]}</option>`;
+      }
+      month.innerHTML = str;
+      str = "";
+      for (let i = 2025; i >= 1905; i--) {
+        str += `<option>${i}</option>`;
+      }
+      year.innerHTML = str;
+
+      const togglePronoun = () => {
+        let p = document.getElementsByName("gender");
+        if (p[2].checked) {
+          prSelect.style.display = "block";
+        } else {
+          prSelect.style.display = "none";
         }
-      </script>
+      };
+    </script>
   </body>
 </html>
