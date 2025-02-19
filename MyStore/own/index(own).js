@@ -223,8 +223,9 @@ window.onload = () => {
         document.body.classList.add("dark-mode");
     }
     checkLoginStatus();
-    filterByCategory();
+    updateWelcomeMessage(); // ✅ Ensure it runs on page load
 };
+
 
 // ✅ User Authentication Functions
 const checkLoginStatus = () => {
@@ -240,29 +241,37 @@ const checkLoginStatus = () => {
 };
 
 const signup = () => {
+    let name = document.getElementById("signupName").value.trim();
     let email = document.getElementById("signupEmail").value.trim();
     let password = document.getElementById("signupPassword").value.trim();
-    if (!email || !password || users[email]) {
+
+    if (!name || !email || !password || users[email]) {
         alert("Invalid input or email already exists!");
         return;
     }
-    users[email] = { password, cart: {} };
+
+    users[email] = { name, password, cart: {} }; // ✅ Store user name
     localStorage.setItem("users", JSON.stringify(users));
     alert("Signup successful! Please login.");
     showLogin();
 };
 
+
 const login = () => {
     let email = document.getElementById("loginEmail").value.trim();
     let password = document.getElementById("loginPassword").value.trim();
+
     if (!users[email] || users[email].password !== password) {
         alert("Invalid email or password!");
         return;
     }
+
     currentUser = email;
     localStorage.setItem("currentUser", currentUser);
+    updateWelcomeMessage(); // ✅ Ensure username updates after login
     checkLoginStatus();
 };
+
 
 const logout = () => {
     currentUser = null;
@@ -280,4 +289,12 @@ const showSignup = () => {
 const showLogin = () => {
     document.getElementById("signupBox").style.display = "none";
     document.getElementById("loginBox").style.display = "block";
+};
+const updateWelcomeMessage = () => {
+    let welcomeText = document.getElementById("welcomeUser");
+    if (currentUser && users[currentUser]) {
+        welcomeText.innerText = `Welcome, ${users[currentUser].name || "User"}`;
+    } else {
+        welcomeText.innerText = "Welcome, Guest";
+    }
 };

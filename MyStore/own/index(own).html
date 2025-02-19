@@ -33,14 +33,22 @@
     </div>
 
     <!-- Store Section (Hidden Until Login) -->
-    <div id="storeContainer" style="display: none;">
-        <div class="header">
+    <div class="header">
+        <div class="header-left">
             <h1>My Store</h1>
+        </div>
+        <div class="header-middle">
+            <h3 id="welcomeUser">Welcome, Guest</h3>
+        </div>
+        <div class="header-right">
             <h4 id="home" onclick="hideCart()">HOME</h4>
-            <button id="cartButton" onclick="displayCart()">Cart:<span id="items"></span></button>
+            <button id="cartButton" onclick="displayCart()">Cart: <span id="items"></span></button>
             <button onclick="logout()">Logout</button>
             <button id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
         </div>
+    </div>
+    
+        
 
         <hr />
         <div class="search-container">
