@@ -5,9 +5,13 @@ let user = {};
 function toggleTheme() {
     document.body.classList.toggle("dark-mode");
 }
+
+// 🔹 Toggle Sidebar Menu
 function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("open");
+    let sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("open");
 }
+
 // 🔹 Show Login Form
 function showLogin() {
     toggleMenu();
@@ -68,25 +72,28 @@ function chkUser() {
     }
 }
 
-// 🔹 Show Dashboard
+// 🔹 Show Dashboard (Transactions & User Info)
 function home() {
     document.getElementById("root").innerHTML = `
         <h2>Welcome, ${user.name}!</h2>
         <p><b>Balance: $<span id="spBalance">${user.balance}</span></b></p>
+        
         <select id="type" onchange="showUser()">
             <option value="0">--Select--</option>
             <option value="1">Deposit</option>
             <option value="2">Withdraw</option>
             <option value="3">Transfer</option>
         </select>
+
         <p><select id="selUser" style="display:none"></select></p>
         <p><input type="number" id="amount" placeholder="Enter Amount"></p>
         <button onclick="saveData()">Submit</button>
+
         <p><button onclick="showLogin()">Logout</button></p>
     `;
 }
 
-// 🔹 Show User List (for transfers)
+// 🔹 Show Users for Transfers
 function showUser() {
     let selUser = document.getElementById("selUser");
     let type = document.getElementById("type").value;
@@ -137,15 +144,9 @@ function saveData() {
         let receiver = users.find(u => u.email === receiverEmail);
 
         if (receiver && user.balance >= amount) {
-            // Deduct from sender
             user.balance -= amount;
-
-            // Add to receiver
             receiver.balance += amount;
-
-            // Save to localStorage
             localStorage.setItem("users", JSON.stringify(users));
-
             alert(`$${amount} successfully transferred to ${receiver.name}.`);
         } else {
             alert("Insufficient balance or recipient not found.");
@@ -153,21 +154,20 @@ function saveData() {
         }
     }
 
-    // Update user balance on screen
     document.getElementById("spBalance").innerText = user.balance;
-
-    // Save updated data in localStorage
     let userIndex = users.findIndex(u => u.email === user.email);
     if (userIndex !== -1) {
         users[userIndex] = user;
         localStorage.setItem("users", JSON.stringify(users));
     }
 }
+
+// 🔹 Clear Local Storage & Reset
 function clearLocalStorage() {
     localStorage.clear();
     alert("Local storage cleared!");
-    location.reload(); // Refresh the page to reset everything
+    location.reload();
 }
 
-
+// 🔹 Initialize App
 showLogin();
