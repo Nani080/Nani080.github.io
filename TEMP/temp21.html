@@ -274,6 +274,7 @@
           month: document.getElementById("month").value,
           year: document.getElementById("year").value,
           gender: [...document.getElementsByName("gender")].find(r => r.checked)?.value || "",
+          interests: [...document.getElementsByName("interest")].filter(r => r.checked).map(r => r.value),
           pronoun: document.getElementById("prSelect").value
         };
 
@@ -287,6 +288,7 @@
             <p><strong>Email:</strong> ${userData.email}</p>
             <p><strong>Password:</strong> ${userData.password}</p>
             <p><strong>Gender:</strong> ${genderDisplay}</p>
+            <p><strong>Interests:</strong> ${userData.interests.join(", ")}</p>
             <p><strong>Date of Birth:</strong> ${dob}</p>
             <button class="confirm-btn">Confirm</button>
             <button class="edit-btn" onclick="showForm()">Edit</button>
@@ -329,13 +331,13 @@
           <div class="leftCaption">Interests</div>
           <div class="radio-group">
             <div class="radioClass">
-              Music<input type="checkbox" name="interest" value="Music" />
+              Music<input type="checkbox" name="interest" id="music" value="Music" />
             </div>
             <div class="radioClass">
-              Sports<input type="checkbox" name="interest" value="Sports" />
+              Sports<input type="checkbox" name="interest" id="sports" value="Sports" />
             </div>
             <div class="radioClass">
-              Movies<input type="checkbox" name="interest" value="Movies" />
+              Movies<input type="checkbox" name="interest" id="movies" value="Movies" />
             </div>
           </div>
           <div class="row">
