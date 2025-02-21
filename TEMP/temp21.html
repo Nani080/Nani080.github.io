@@ -326,18 +326,31 @@
               <option value="They" ${userData.pronoun === "They" ? "selected" : ""}>They: "Wish them a happy birthday"</option>
             </select>
           </div>
+          <div class="leftCaption">Interests</div>
+          <div class="radio-group">
+            <div class="radioClass">
+              Music<input type="checkbox" name="interest" value="Music" />
+            </div>
+            <div class="radioClass">
+              Sports<input type="checkbox" name="interest" value="Sports" />
+            </div>
+            <div class="radioClass">
+              Movies<input type="checkbox" name="interest" value="Movies" />
+            </div>
+          </div>
           <div class="row">
             <input type="text" id="email" placeholder="Mobile number or email address" value="${userData.email || ''}" />
           </div>
           <div class="row">
             <input type="password" id="password" placeholder="New password" value="${userData.password || ''}" />
+            <img src="assets/eye-hide.png" id="toggleEye" onclick="togglePwd()" style="width: 30px; margin-top: 10px; cursor: pointer;" />
           </div>
           <button onclick="showData()">Sign Up</button>
         `;
 
         populateDateFields();
-        document.getElementById("day").value = userData.day || "1";
-        document.getElementById("month").value = userData.month || "Jan";
+        document.getElementById("day").value = userData.day || new Date().getDate();
+        document.getElementById("month").value = userData.month || new Date().getMonth();
         document.getElementById("year").value = userData.year || new Date().getFullYear();
       };
 
@@ -352,6 +365,16 @@
         document.getElementById("prSelect").style.display = gender === "Custom" ? "block" : "none";
       };
 
+      const togglePwd = () => {
+        let pwd = document.getElementById("password");
+        if (pwd.type === "password"){
+          document.getElementById("toggleEye").src = "assets/eye-show.png";
+          pwd.type = "text";
+        } else if (pwd.type === "text") {
+          document.getElementById("toggleEye").src = "assets/eye-hide.png";
+          pwd.type = "password";
+        }
+      };
       showForm();
     </script>
   </body>
